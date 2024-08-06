@@ -63,6 +63,16 @@
 
     <?php
         if(isset($_POST['calcular'])){
+
+            if($_POST['abertura_matricula'] == ""){
+    ?>
+                <p>Selecione se você possui matrícula</p>
+    <?php 
+                die(); 
+            }
+    ?>
+
+    <?php
             if(isset($_POST['alienacao'])){
                 $custo_total += $valor_alienacao;
             }
@@ -81,14 +91,14 @@
             elseif(isset($_POST['indisponibilidade'])){
                 $custo_total += $valor_indisponibilidade;
             }
-            elseif($custo_total == 0 || $_POST['abertura_matricula'] == ''){
+            elseif($custo_total==0){
     ?>
-                <p>Selecione alguma opção</p>
-    <?php 
-                die(); 
+                <p>Selecione algum serviço</p>
+    <?php
+                die();
             }
 
-            if($_POST['abertura_matricula'] == 'sim'){
+            if($_POST['abertura_matricula'] == 'sim' || $_POST['abertura_matricula'] == ''){
                 $multiplicador_arquivamento = 4;
                 $multiplicador_conferencia = 4;
 
