@@ -13,3 +13,6 @@ if($tipo_servico == "Escritura de Compra e Venda + Alienação"){
 if($tipo_servico == "Cancelamento de Ônus"){
     require_once('tipos_servico/cancelamento_de_onus/cancelamento_onus.php');
 }
+if($tipo_servico == "Doação - Simples"){
+    require_once('tipos_servico/doacao_simples/doacao_simples.php');
+}

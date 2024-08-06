@@ -33,7 +33,7 @@
         <input type="hidden" name="bt-servico" value="Averbações">
         <button type="submit">Averbações</button>
     </form>
-    <form action="" method="get">
+    <form action="calculadora.php" method="get">
         <input type="hidden" name="bt-servico" value="Doação - Simples">
         <button type="submit">Doação - Simples</button>
     </form>
