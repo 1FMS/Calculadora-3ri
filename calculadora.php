@@ -13,6 +13,12 @@ if($tipo_servico == "Escritura de Compra e Venda + Alienação"){
 if($tipo_servico == "Cancelamento de Ônus"){
     require_once('tipos_servico/cancelamento_de_onus/cancelamento_onus.php');
 }
+if($tipo_servico == "Averbações"){
+    require_once('tipos_servico/averbacao_CUEOD/averbacao_cueod.php');
+}
 if($tipo_servico == "Doação - Simples"){
     require_once('tipos_servico/doacao_simples/doacao_simples.php');
+}
+if($tipo_servico == "Resgate de Aforamento"){
+    require_once('tipos_servico/resgate_de_aforamento/resgate_aforamento.php');
 }

@@ -29,7 +29,7 @@
         <input type="hidden" name="bt-servico" value="Averbação de Construção">
         <button type="submit">Averbação de Construção</button>
     </form>
-    <form action="" method="get">
+    <form action="calculadora.php" method="get">
         <input type="hidden" name="bt-servico" value="Averbações">
         <button type="submit">Averbações</button>
     </form>
@@ -37,7 +37,7 @@
         <input type="hidden" name="bt-servico" value="Doação - Simples">
         <button type="submit">Doação - Simples</button>
     </form>
-    <form action="" method="get">
+    <form action="calculadora.php" method="get">
         <input type="hidden" name="bt-servico" value="Resgate de Aforamento">
         <button type="submit">Resgate de Aforamento</button>
     </form>

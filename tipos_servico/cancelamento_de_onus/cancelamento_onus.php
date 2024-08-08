@@ -51,7 +51,7 @@
         <p>Penhora<input type="radio" name="penhora"></p>
         <p>Indisponibidade<input type="radio" name="indisponibilidade"></p>
 
-        <p>Possui matrícula aberta no  Registro?</p>
+        <p>Possui matrícula aberta no 3° Registro?</p>
         <input type="hidden" name="abertura_matricula">
         <p>Sim<input type="radio" name="abertura_matricula" id="" value="sim"></p>
         <p>Não<input type="radio" name="abertura_matricula" id="" value="nao"></p>
@@ -76,22 +76,22 @@
             if(isset($_POST['alienacao'])){
                 $custo_total += $valor_alienacao;
             }
-            elseif(isset($_POST['cedula'])){
+            if(isset($_POST['cedula'])){
                 $custo_total += $valor_cedula;
             }
-            elseif(isset($_POST['hipoteca'])){
+            if(isset($_POST['hipoteca'])){
                 $custo_total += $valor_hipoteca;
             }
-            elseif(isset($_POST['penhora'])){
+            if(isset($_POST['penhora'])){
                 $custo_total += $valor_penhora;
             }
-            elseif(isset($_POST['usufruto'])){
+            if(isset($_POST['usufruto'])){
                 $custo_total += $valor_usufruto;
             }
-            elseif(isset($_POST['indisponibilidade'])){
+            if(isset($_POST['indisponibilidade'])){
                 $custo_total += $valor_indisponibilidade;
             }
-            elseif($custo_total==0){
+            if($custo_total==0){
     ?>
                 <p>Selecione algum serviço</p>
     <?php
@@ -116,9 +116,10 @@
                 $custo_total += $valor_prenotacao;
                 $custo_total += $valor_certidao;
 
+                $custo_total += $valor_prenotacao;
                 $custo_total += $valor_matricula;
                 $custo_total += $valor_comunicacao;
-                $custo_total += $valor_semvalor;
+                $custo_total += $valor_semvalor;//encerramento
                 $custo_total += $valor_semvalor;
             }
 
@@ -226,6 +227,11 @@
                     <td><?php echo $codigo_matricula?></td>
                     <td><?php echo $nome_matricula. "(3º Registro de Imóveis)"?></td>
                     <td><?php echo "R$ ".$valor_matricula?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $codigo_prenotacao?></td>
+                    <td><?php echo $nome_prenotacao. "(1º Registro de Imóveis)"?></td>
+                    <td><?php echo "R$ ".$valor_prenotacao?></td>
                 </tr>
             
                 <tr>

@@ -37,7 +37,7 @@
 
         <p>Valor Financiamento:<input type="number" name="valor_financiamento" id=""></p>
 
-        <p>Possui matrícula aberta no  Registro?</p>
+        <p>Possui matrícula aberta no 3° Registro?</p>
         <input type="hidden" name="abertura_matricula">
         <p>Sim<input type="radio" name="abertura_matricula" id="" value="sim"></p>
         <p>Não<input type="radio" name="abertura_matricula" id="" value="nao"></p>
@@ -187,11 +187,17 @@
                 $custo_total += $valor_matricula;
                 $custo_total += $valor_semvalor;
                 $custo_total += $valor_comunicacao;
+                $custo_total += $valor_prenotacao;
         ?>
             <tr>
                 <td><?php echo $codigo_matricula?></td>
                 <td><?php echo $nome_matricula. "(3º Registro de Imóveis)"?></td>
                 <td><?php echo "R$ ".$valor_matricula?></td>
+            </tr>
+            <tr>
+                <td><?php echo $codigo_prenotacao?></td>
+                <td><?php echo $nome_prenotacao. "(1º Registro de Imóveis)"?></td>
+                <td><?php echo "R$ ".$valor_prenotacao?></td>
             </tr>
             
             <tr>

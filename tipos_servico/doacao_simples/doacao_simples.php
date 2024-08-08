@@ -27,7 +27,7 @@
 
         <p>Valor do ITCD:<input type="number" name="valor_itcd" id=""></p>
 
-        <p>Possui matrícula aberta no  Registro?</p>
+        <p>Possui matrícula aberta no 3° Registro?</p>
         <input type="hidden" name="abertura_matricula">
         <p>Sim<input type="radio" name="abertura_matricula" id="" value="sim"></p>
         <p>Não<input type="radio" name="abertura_matricula" id="" value="nao"></p>
@@ -114,28 +114,28 @@
                 <tr>
                     <td><?php echo $codigo_servico_doacao?></td>
                     <td><?php echo $nome_doacao?></td>
-                    <td><?php echo $custo_servico_doacao?></td>
+                    <td><?php echo "R$ ".$custo_servico_doacao?></td>
                 </tr>
                 <tr>
                     <td><?php echo $codigo_prenotacao?></td>
                     <td><?php echo $nome_prenotacao?></td>
-                    <td><?php echo $valor_prenotacao?></td>
+                    <td><?php echo "R$ ".$valor_prenotacao?></td>
                 </tr>
                 
                 <tr>
                     <td><?php echo $codigo_arquivamento?></td>
                     <td><?php echo $nome_arquivamento. " ($multiplicador_arquivamento x)"?></td>
-                    <td><?php echo $valor_arquivamento * $multiplicador_arquivamento?></td>
+                    <td><?php echo "R$ ".$valor_arquivamento * $multiplicador_arquivamento?></td>
                 </tr>
                 <tr>
                     <td><?php echo $codigo_conferencia?></td>
                     <td><?php echo $nome_conferencia. " ($multiplicador_conferencia x)"?></td>
-                    <td><?php echo $valor_conferencia * $multiplicador_conferencia?></td>
+                    <td><?php echo "R$ ".$valor_conferencia * $multiplicador_conferencia?></td>
                 </tr>
                 <tr>
                     <td><?php echo $codigo_certidao?></td>
                     <td><?php echo $nome_certidao?></td>
-                    <td><?php echo $valor_certidao?></td>
+                    <td><?php echo "R$ ".$valor_certidao?></td>
                 </tr>
 
     <?php
@@ -144,17 +144,17 @@
                 <tr>
                     <td><?php echo $codigo_matricula?></td>
                     <td><?php echo $nome_matricula?></td>
-                    <td><?php echo $valor_matricula?></td>
+                    <td><?php echo "R$ ".$valor_matricula?></td>
                 </tr>
                 <tr>
                     <td><?php echo $codigo_prenotacao?></td>
                     <td><?php echo $nome_prenotacao. '(1º RI)'?></td>
-                    <td><?php echo $valor_prenotacao?></td>
+                    <td><?php echo "R$ ".$valor_prenotacao?></td>
                 </tr>
                 <tr>
                     <td><?php echo $codigo_semvalor?></td>
                     <td><?php echo "Encerramento Matrícula (1º RI)"?></td>
-                    <td><?php echo $valor_semvalor?></td>
+                    <td><?php echo "R$ ".$valor_semvalor?></td>
                 </tr>
 
                 <tr>
@@ -177,7 +177,7 @@
             <tr>
                 <th>Emolumentos Totais</th>
                 <th></th>
-                <th><?php echo $custo_total?></th>
+                <th><?php echo "R$ ".$custo_total?></th>
             </tr>
             </table>
     <?php
