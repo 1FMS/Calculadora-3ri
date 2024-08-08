@@ -22,3 +22,6 @@ if($tipo_servico == "Doação - Simples"){
 if($tipo_servico == "Resgate de Aforamento"){
     require_once('tipos_servico/resgate_de_aforamento/resgate_aforamento.php');
 }
+if($tipo_servico == "Certidões"){
+    require_once('tipos_servico/certidão/certidao.php');
+}

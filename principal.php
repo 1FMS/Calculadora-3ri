@@ -41,7 +41,7 @@
         <input type="hidden" name="bt-servico" value="Resgate de Aforamento">
         <button type="submit">Resgate de Aforamento</button>
     </form>
-    <form action="" method="get">
+    <form action="calculadora.php" method="get">
         <input type="hidden" name="bt-servico" value="Certidões">
         <button type="submit">Certidões</button>
     </form>
