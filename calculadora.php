@@ -25,3 +25,6 @@ if($tipo_servico == "Resgate de Aforamento"){
 if($tipo_servico == "Certidões"){
     require_once('tipos_servico/certidão/certidao.php');
 }
+if($tipo_servico == "Averbação de Construção"){
+    require_once('tipos_servico/averbacao_de_construcao/averbacao_construcao.php');
+}

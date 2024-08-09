@@ -25,7 +25,7 @@
         <input type="hidden" name="bt-servico" value="Cancelamento de Ônus">
         <button type="submit">Cancelamento de Ônus</button>
     </form>
-    <form action="" method="get">
+    <form action="calculadora.php" method="get">
         <input type="hidden" name="bt-servico" value="Averbação de Construção">
         <button type="submit">Averbação de Construção</button>
     </form>

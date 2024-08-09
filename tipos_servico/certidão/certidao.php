@@ -69,7 +69,7 @@
             $custo_total += $valor_certidao;
 
         }
-        if(isset($_POST['inteiro'])){
+        if(isset($_POST['onus'])){
             $custo_total += $valor_certidao;
 
         }
