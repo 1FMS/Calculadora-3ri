@@ -24,12 +24,12 @@
     $valor_reipersecutoria = $valor_certidao;
     //Busca com certidão positiva
     $nome_busca_positiva = "Busca com certidão positiva";
-    $codigo_busca_positiva = $codigo_certidao;
-    $valor_busca_positiva = $valor_certidao;
+    $codigo_busca_positiva = "($codigo_certidaounica) e ($codigo_busca)";
+    $valor_busca_positiva = $valor_certidaounica + $valor_busca;
     //Busca com certidão negativa
     $nome_busca_negativa = "Busca com certidão negativa";
-    $codigo_busca_negativa = $codigo_certidao;
-    $valor_busca_negativa = $valor_certidao;
+    $codigo_busca_negativa = "($codigo_certidaounica) e ($codigo_busca)";
+    $valor_busca_negativa = $valor_certidaounica + $valor_busca;
 ?>
 
 <!DOCTYPE html>
@@ -69,14 +69,27 @@
             $custo_total += $valor_certidao;
 
         }
-        if(isset($_POST['busca_positiva'])){
-            $custo_total += $valor_certidao;
-
-        }
         if(isset($_POST['inteiro'])){
             $custo_total += $valor_certidao;
 
         }
+        if(isset($_POST['busca_positiva'])){
+            $custo_total += $valor_certidaounica;
+            $custo_total += $valor_busca;
+
+        }
+        if(isset($_POST['busca_negativa'])){
+            $custo_total += $valor_certidaounica;
+            $custo_total += $valor_busca;
+
+        }
+
+    if($custo_total==0){
+?>
+        <p>Selecione algum campo</p>
+<?php
+        die();
+    }
 ?>
     <table>
         <tr>
@@ -88,13 +101,74 @@
     if(isset($_POST['inteiro'])){
 ?>
         <tr>
-            <th><?php echo $codigo_inteiro?></th>
-            <th><?php echo $nome_inteiro?></th>
-            <th><?php echo $valor_inteiro?></th>
+            <td><?php echo $codigo_inteiro?></td>
+            <td><?php echo $nome_inteiro?></td>
+            <td><?php echo $valor_inteiro?></td>
         </tr>
 <?php
     }
-
+?>
+<?php
+    if(isset($_POST['situacao'])){
+?>
+        <tr>
+            <td><?php echo $codigo_situacao?></td>
+            <td><?php echo $nome_situacao?></td>
+            <td><?php echo $valor_situacao?></td>
+        </tr>
+<?php
+    }
+?>
+<?php
+    if(isset($_POST['onus'])){
+?>
+        <tr>
+            <td><?php echo $codigo_onus?></td>
+            <td><?php echo $nome_onus?></td>
+            <td><?php echo $valor_onus?></td>
+        </tr>
+<?php
+    }
+?>
+<?php
+    if(isset($_POST['reipersecutoria'])){
+?>
+        <tr>
+            <td><?php echo $codigo_reipersecutoria?></td>
+            <td><?php echo $nome_reipersecutoria?></td>
+            <td><?php echo $valor_reipersecutoria?></td>
+        </tr>
+<?php
+    }
+?>
+<?php
+    if(isset($_POST['busca_positiva'])){
+?>
+        <tr>
+            <td><?php echo $codigo_busca_positiva?></td>
+            <td><?php echo $nome_busca_positiva?></td>
+            <td><?php echo $valor_busca_positiva?></td>
+        </tr>
+<?php
+    }
+?>
+<?php
+    if(isset($_POST['busca_negativa'])){
+?>
+        <tr>
+            <td><?php echo $codigo_busca_negativa?></td>
+            <td><?php echo $nome_busca_negativa?></td>
+            <td><?php echo $valor_busca_negativa?></td>
+        </tr>
+<?php
+    }
+?>
+    <tr>
+        <th>Emolumentos Totais</th>
+        <th></th>
+        <th><?php echo $custo_total?></th>
+    </tr>
+<?php
     }
 ?>
     </table>

@@ -43,6 +43,16 @@
     $nome_semvalor;
     $valor_semvalor;
 
+    //Busca
+    $codigo_busca;
+    $nome_busca;
+    $valor_busca;
+
+    //Certidao(1 folha)
+    $codigo_certidaounica;
+    $nome_certidaounica;
+    $valor_certidaounica;
+
 
     //Querry
     $sql_code_dados_averb_can = "SELECT * FROM servico_valor_fixo";
@@ -92,6 +102,16 @@
             $codigo_semvalor = $dados_valor_fixo['codigo_servico_fixo'];
             $nome_semvalor = $dados_valor_fixo['nome_servico_fixo'];
             $valor_semvalor = $dados_valor_fixo['total_fixo'];
+        }
+        elseif($nome_servico == 'Busca(Até 5 anos)'){
+            $codigo_busca = $dados_valor_fixo['codigo_servico_fixo'];
+            $nome_busca = $dados_valor_fixo['nome_servico_fixo'];
+            $valor_busca = $dados_valor_fixo['total_fixo'];
+        }
+        elseif($nome_servico == 'Certidão(1 folha)'){
+            $codigo_certidaounica = $dados_valor_fixo['codigo_servico_fixo'];
+            $nome_certidaounica = $dados_valor_fixo['nome_servico_fixo'];
+            $valor_certidaounica = $dados_valor_fixo['total_fixo'];
         }
 
         

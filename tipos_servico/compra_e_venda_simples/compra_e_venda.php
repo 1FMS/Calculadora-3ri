@@ -80,7 +80,7 @@
         if($_POST['abertura_matricula']=='nao'){
             $multiplicador_arquivamento = 8;
             $multiplicador_conferencia = 8;
-        }else{
+        }elseif($_POST['abertura_matricula']=='sim'){
             $multiplicador_conferencia = 8;
             $multiplicador_arquivamento = 6;
         }
