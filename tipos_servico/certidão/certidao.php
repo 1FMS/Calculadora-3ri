@@ -3,9 +3,6 @@
 
     $custo_total = 0;
 
-    $multiplicador_arquivamento;
-    $multiplicador_conferencia;
-
     //Inteiro Teor de Matrícula
     $nome_inteiro = "Certidão Inteiro Teor de matrícula";
     $codigo_inteiro = $codigo_certidao;
@@ -103,7 +100,7 @@
         <tr>
             <td><?php echo $codigo_inteiro?></td>
             <td><?php echo $nome_inteiro?></td>
-            <td><?php echo $valor_inteiro?></td>
+            <td><?php echo "R$ ".$valor_inteiro = number_format($valor_inteiro, 2, ',', '.')?></td>
         </tr>
 <?php
     }
@@ -114,7 +111,7 @@
         <tr>
             <td><?php echo $codigo_situacao?></td>
             <td><?php echo $nome_situacao?></td>
-            <td><?php echo $valor_situacao?></td>
+            <td><?php echo "R$ ".$valor_situacao = number_format($valor_situacao, 2, ',', '.')?></td>
         </tr>
 <?php
     }
@@ -125,7 +122,7 @@
         <tr>
             <td><?php echo $codigo_onus?></td>
             <td><?php echo $nome_onus?></td>
-            <td><?php echo $valor_onus?></td>
+            <td><?php echo "R$ ".$valor_onus = number_format($valor_onus, 2, ',', '.')?></td>
         </tr>
 <?php
     }
@@ -136,7 +133,7 @@
         <tr>
             <td><?php echo $codigo_reipersecutoria?></td>
             <td><?php echo $nome_reipersecutoria?></td>
-            <td><?php echo $valor_reipersecutoria?></td>
+            <td><?php echo "R$ ".$valor_reipersecutoria = number_format($valor_reipersecutoria, 2, ',', '.')?></td>
         </tr>
 <?php
     }
@@ -147,7 +144,7 @@
         <tr>
             <td><?php echo $codigo_busca_positiva?></td>
             <td><?php echo $nome_busca_positiva?></td>
-            <td><?php echo $valor_busca_positiva?></td>
+            <td><?php echo "R$ ".$valor_busca_positiva = number_format($valor_busca_positiva, 2, ',', '.')?></td>
         </tr>
 <?php
     }
@@ -158,7 +155,7 @@
         <tr>
             <td><?php echo $codigo_busca_negativa?></td>
             <td><?php echo $nome_busca_negativa?></td>
-            <td><?php echo $valor_busca_negativa?></td>
+            <td><?php echo "R$ ".$valor_busca_negativa = number_format($valor_busca_negativa, 2, ',', '.')?></td>
         </tr>
 <?php
     }
@@ -166,7 +163,7 @@
     <tr>
         <th>Emolumentos Totais</th>
         <th></th>
-        <th><?php echo $custo_total?></th>
+        <th><?php echo "R$ ".$custo_total = number_format($custo_total, 2, ',', '.')?></th>
     </tr>
 <?php
     }

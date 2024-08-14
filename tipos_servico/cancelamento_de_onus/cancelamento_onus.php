@@ -5,6 +5,8 @@
 
     $multiplicador_arquivamento;
     $multiplicador_conferencia;
+    $valor_arquivamento_final;
+    $valor_conferencia_final;
 
     //Alienação
     $nome_alienacao = "Alienação Fiduciária";
@@ -102,8 +104,11 @@
                 $multiplicador_arquivamento = 4;
                 $multiplicador_conferencia = 4;
 
-                $custo_total += $valor_arquivamento*$multiplicador_arquivamento;
-                $custo_total += $valor_conferencia*$multiplicador_conferencia;
+                $valor_arquivamento_final = $multiplicador_arquivamento * $valor_arquivamento;
+                $valor_conferencia_final = $multiplicador_conferencia * $valor_conferencia;
+
+                $custo_total += $valor_arquivamento_final;
+                $custo_total += $valor_conferencia_final;
                 $custo_total += $valor_prenotacao;
                 $custo_total += $valor_certidao;
 
@@ -111,8 +116,11 @@
                 $multiplicador_arquivamento = 2;
                 $multiplicador_conferencia = 2;
 
-                $custo_total += $valor_arquivamento*$multiplicador_arquivamento;
-                $custo_total += $valor_conferencia*$multiplicador_conferencia;
+                $valor_arquivamento_final = $multiplicador_arquivamento * $valor_arquivamento;
+                $valor_conferencia_final = $multiplicador_conferencia * $valor_conferencia;
+
+                $custo_total += $valor_arquivamento_final;
+                $custo_total += $valor_conferencia_final;
                 $custo_total += $valor_prenotacao;
                 $custo_total += $valor_certidao;
 
@@ -137,7 +145,7 @@
                 <tr>
                     <td><?php echo $codigo_alienacao ?></td>
                     <td><?php echo $nome_alienacao ?></td>
-                    <td><?php echo "R$ ".$valor_alienacao ?></td>
+                    <td><?php echo "R$ ".$valor_alienacao = number_format($valor_alienacao, 2, ',', '.') ?></td>
                 </tr>
     <?php
             }    
@@ -148,7 +156,7 @@
                 <tr>
                     <td><?php echo $codigo_cedula ?></td>
                     <td><?php echo $nome_cedula ?></td>
-                    <td><?php echo "R$ ".$valor_cedula ?></td>
+                    <td><?php echo "R$ ".$valor_cedula = number_format($valor_cedula, 2, ',', '.') ?></td>
                 </tr>
     <?php
             }    
@@ -159,7 +167,7 @@
                 <tr>
                     <td><?php echo $codigo_penhora ?></td>
                     <td><?php echo $nome_penhora ?></td>
-                    <td><?php echo "R$ ".$valor_penhora ?></td>
+                    <td><?php echo "R$ ".$valor_penhora = number_format($valor_penhora, 2, ',', '.') ?></td>
                 </tr>
     <?php
             }    
@@ -170,7 +178,7 @@
                 <tr>
                     <td><?php echo $codigo_usufruto ?></td>
                     <td><?php echo $nome_usufruto ?></td>
-                    <td><?php echo "R$ ".$valor_usufruto ?></td>
+                    <td><?php echo "R$ ".$valor_usufruto = number_format($valor_usufruto, 2, ',', '.') ?></td>
                 </tr>
     <?php
             }    
@@ -181,7 +189,7 @@
                 <tr>
                     <td><?php echo $codigo_hipoteca ?></td>
                     <td><?php echo $nome_hipoteca ?></td>
-                    <td><?php echo "R$ ".$valor_hipoteca ?></td>
+                    <td><?php echo "R$ ".$valor_hipoteca = number_format($valor_hipoteca, 2, ',', '.') ?></td>
                 </tr>
     <?php
             }    
@@ -192,7 +200,7 @@
                 <tr>
                     <td><?php echo $codigo_indisponibilidade ?></td>
                     <td><?php echo $nome_indisponibilidade ?></td>
-                    <td><?php echo "R$ ".$valor_indisponibilidade ?></td>
+                    <td><?php echo "R$ ".$valor_indisponibilidade = number_format($valor_indisponibilidade, 2, ',', '.') ?></td>
                 </tr>
     <?php
             }    
@@ -202,53 +210,57 @@
                 <tr>
                     <td><?php echo $codigo_prenotacao?></td>
                     <td><?php echo $nome_prenotacao?></td>
-                    <td><?php echo "R$ ".$valor_prenotacao?></td>
+                    <td><?php echo "R$ ".$valor_prenotacao = number_format($valor_prenotacao, 2, ',', '.')?></td>
                 </tr>
                 <tr>
                     <td><?php echo $codigo_arquivamento?></td>
                     <td><?php echo $nome_arquivamento . " ($multiplicador_arquivamento x)"?></td>
-                    <td><?php echo "R$ ".($valor_arquivamento * $multiplicador_arquivamento)?></td>
+                    <td><?php echo "R$ ".$valor_arquivamento_final = number_format($valor_arquivamento_final, 2, ',', '.')?></td>
                 </tr>
                 <tr>
                     <td><?php echo $codigo_conferencia?></td>
                     <td><?php echo $nome_conferencia . " ($multiplicador_conferencia x) "?></td>
-                    <td><?php echo "R$ ".($valor_conferencia * $multiplicador_conferencia)?></td>
+                    <td><?php echo "R$ ".$valor_conferencia_final = number_format($valor_conferencia_final, 2, ',', '.')?></td>
                 </tr>
                 <tr>
                     <td><?php echo $codigo_certidao?></td>
                     <td><?php echo $nome_certidao?></td>
-                    <td><?php echo "R$ ".$valor_certidao?></td>
+                    <td><?php echo "R$ ".$valor_certidao = number_format($valor_certidao, 2, ',', '.')?></td>
                 </tr>
             
     <?php
             if($_POST['abertura_matricula']=='nao'){
     ?>
                 <tr>
-                    <td><?php echo $codigo_matricula?></td>
-                    <td><?php echo $nome_matricula. "(3º Registro de Imóveis)"?></td>
-                    <td><?php echo "R$ ".$valor_matricula?></td>
+                    <td><?php echo $codigo_prenotacao?></td>
+                    <td><?php echo $nome_prenotacao. '(1º Registro de Imóveis)'?></td>
+                    <td><?php echo "R$ ".$valor_prenotacao?></td>
                 </tr>
                 <tr>
-                    <td><?php echo $codigo_prenotacao?></td>
-                    <td><?php echo $nome_prenotacao. "(1º Registro de Imóveis)"?></td>
-                    <td><?php echo "R$ ".$valor_prenotacao?></td>
+                    <td><?php echo $codigo_matricula?></td>
+                    <td><?php echo $nome_matricula. "(3º Registro de Imóveis)"?></td>
+                    <td><?php echo "R$ ".$valor_matricula = number_format($valor_matricula, 2, ',', '.')?></td>
                 </tr>
             
                 <tr>
                     <td><?php echo $codigo_semvalor?></td>
                     <td><?php echo " Encerramento de matrícula (1º Registro de Imóveis)"?></td>
-                    <td><?php echo "R$ ".$valor_semvalor?></td> 
-                </tr>
-
-                <tr>
-                    <td><?php echo $codigo_comunicacao?></td>
-                    <td><?php echo $nome_comunicacao. "(1º Registro de Imóveis)"?></td>
-                    <td><?php echo "R$ ".$valor_comunicacao?></td> 
+                    <td><?php echo "R$ ".$valor_semvalor = number_format($valor_semvalor, 2, ',', '.')?></td>
                 </tr>
                 <tr>
                     <td><?php echo $codigo_semvalor?></td>
-                    <td><?php echo "Transporte de Ônus"?></td>
-                    <td><?php echo "R$ ".$valor_semvalor?></td> 
+                    <td><?php echo " Transporte de ônus (1º Registro de Imóveis)"?></td>
+                    <td><?php echo "R$ ".$valor_semvalor?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $codigo_arquivamento?></td>
+                    <td><?php echo $nome_arquivamento . "(1º Registro de Imóveis)"?></td>
+                    <td ><?php echo "R$ ".$valor_arquivamento = number_format($valor_arquivamento, 2, ',', '.')?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $codigo_comunicacao?></td>
+                    <td><?php echo $nome_comunicacao. "(1º Registro de Imóveis)"?></td>
+                    <td><?php echo "R$ ".$valor_comunicacao = number_format($valor_comunicacao, 2, ',', '.')?></td>
                 </tr>
     
     
@@ -265,7 +277,7 @@
                     <th></th>
                 
                 
-                    <th><?php echo "R$ ".$custo_total ?></th>
+                    <th><?php echo "R$ ".$custo_total = number_format($custo_total, 2, ',', '.')?></th>
                 </tr>
             </table>
     <?php  

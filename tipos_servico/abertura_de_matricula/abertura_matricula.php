@@ -5,6 +5,9 @@
     $multiplicador_arquivamento;
     $multiplicador_conferencia;
 
+    $valor_arquivamento_final;
+    $valor_conferencia_final;
+
     $custo_abertura;
     $codigo_abertura;
     $nome_abertura;
@@ -59,13 +62,18 @@
             $multiplicador_arquivamento = 3;
             $multiplicador_conferencia = 2;
 
+            $valor_arquivamento_final = $multiplicador_arquivamento * $valor_arquivamento;
+            $valor_conferencia_final = $multiplicador_conferencia * $valor_conferencia;
+
             $custo_total += $custo_abertura;
-            $custo_total += ($valor_arquivamento*$multiplicador_arquivamento);
-            $custo_total += ($valor_conferencia*$multiplicador_conferencia);
-            $custo_total += $valor_prenotacao;
+            $custo_total += $valor_arquivamento_final;
+            $custo_total += $valor_conferencia_final;
+            $custo_total += $valor_prenotacao;//3ri
+            $custo_total += $valor_prenotacao;//1ri
             $custo_total += $valor_certidao;
-            $custo_total += $valor_semvalor;
+            $custo_total += $valor_semvalor;//encerramento 1ri
             $custo_total += $valor_comunicacao;
+            $custo_total += $valor_arquivamento;// arquivamento 1ri
         }elseif($tipo_de_abertura== "transporte"){
             $custo_abertura = $valor_matricula;
             $codigo_abertura = $codigo_matricula;
@@ -74,14 +82,19 @@
             $multiplicador_arquivamento = 3;
             $multiplicador_conferencia = 2;
 
+            $valor_arquivamento_final = $multiplicador_arquivamento * $valor_arquivamento;
+            $valor_conferencia_final = $multiplicador_conferencia * $valor_conferencia;
+
             $custo_total += $custo_abertura;
-            $custo_total += ($valor_arquivamento*$multiplicador_arquivamento);
-            $custo_total += ($valor_conferencia*$multiplicador_conferencia);
-            $custo_total += $valor_prenotacao;
+            $custo_total += $valor_arquivamento_final;
+            $custo_total += $valor_conferencia_final;
+            $custo_total += $valor_prenotacao;//3ri
+            $custo_total += $valor_prenotacao;//1ri
             $custo_total += $valor_certidao;
             $custo_total += $valor_semvalor;
             $custo_total += $valor_semvalor;
             $custo_total += $valor_comunicacao;
+            $custo_total += $valor_arquivamento;// arquivamento 1ri
 
     }elseif($tipo_de_abertura== "transporte_cancelamento"){
             $custo_abertura = $valor_matricula;
@@ -90,15 +103,19 @@
 
             $multiplicador_arquivamento = 9;
             $multiplicador_conferencia = 5;
+            $valor_arquivamento_final = $multiplicador_arquivamento * $valor_arquivamento;
+            $valor_conferencia_final = $multiplicador_conferencia * $valor_conferencia;
 
             $custo_total += $custo_abertura;
-            $custo_total += ($valor_arquivamento*$multiplicador_arquivamento);
-            $custo_total += ($valor_conferencia*$multiplicador_conferencia);
-            $custo_total += $valor_prenotacao;
+            $custo_total += $valor_arquivamento_final;
+            $custo_total += $valor_conferencia_final;
+            $custo_total += $valor_prenotacao;//3ri
+            $custo_total += $valor_prenotacao;//1ri
             $custo_total += $valor_certidao;
             $custo_total += $valor_semvalor *2;
             $custo_total += $valor_semvalor;
             $custo_total += $valor_comunicacao;
+            $custo_total += $valor_arquivamento;// arquivamento 1ri
     }
 
 
@@ -112,38 +129,48 @@
         <tr>
             <td><?php echo $codigo_prenotacao?></td>
             <td><?php echo $nome_prenotacao?></td>
-            <td><?php echo "R$ ".$valor_prenotacao?></td>
+            <td><?php echo "R$ ".$valor_prenotacao = number_format($valor_prenotacao, 2, ',', '.')?></td>
         </tr>
         <tr>
             <td><?php echo $codigo_arquivamento?></td>
             <td><?php echo $nome_arquivamento . " ($multiplicador_arquivamento x)"?></td>
-            <td><?php echo "R$ ".($valor_arquivamento * $multiplicador_arquivamento)?></td>
+            <td><?php echo "R$ ".$valor_arquivamento_final = number_format($valor_arquivamento_final, 2, ',', '.')?></td>
         </tr>
         <tr>
             <td><?php echo $codigo_conferencia?></td>
             <td><?php echo $nome_conferencia . " ($multiplicador_conferencia x) "?></td>
-            <td><?php echo "R$ ".($valor_conferencia * $multiplicador_conferencia)?></td>
+            <td><?php echo "R$ ".$valor_conferencia_final = number_format($valor_conferencia_final, 2, ',', '.')?></td>
         </tr>
         <tr>
             <td><?php echo $codigo_certidao?></td>
-            <td><?php echo $nome_certidao . ("(Certidão da Matrícula Atualizada)")?></td>
-            <td><?php echo "R$ ".$valor_certidao?></td>
+            <td><?php echo $nome_certidao?></td>
+            <td><?php echo "R$ ".$valor_certidao = number_format($valor_certidao, 2, ',', '.')?></td>
         </tr>
         <tr>
-            <td><?php echo $codigo_abertura?></td>
-            <td><?php echo $nome_abertura?></td>
-            <td><?php echo "R$ ".$custo_abertura?></td>
-        </tr>
-        <tr>
-            <td><?php echo $codigo_semvalor?></td>
-            <td><?php echo " Encerramento de matrícula (1º Registro de Imóveis)"?></td>
-            <td><?php echo "R$ ".$valor_semvalor?></td> 
-        </tr>
-
+                <td><?php echo $codigo_prenotacao?></td>
+                <td><?php echo $nome_prenotacao. '(1º Registro de Imóveis)'?></td>
+                <td><?php echo "R$ ".$valor_prenotacao?></td>
+            </tr>
+            <tr>
+                <td><?php echo $codigo_matricula?></td>
+                <td><?php echo $nome_matricula. "(3º Registro de Imóveis)"?></td>
+                <td><?php echo "R$ ".$valor_matricula = number_format($valor_matricula, 2, ',', '.')?></td>
+            </tr>
+            
+            <tr>
+                <td><?php echo $codigo_semvalor?></td>
+                <td><?php echo " Encerramento de matrícula (1º Registro de Imóveis)"?></td>
+                <td><?php echo "R$ ".$valor_semvalor = number_format($valor_semvalor, 2, ',', '.')?></td>
+            </tr>
+            <tr>
+                <td><?php echo $codigo_arquivamento?></td>
+                <td><?php echo $nome_arquivamento . "(1º Registro de Imóveis)"?></td>
+                <td ><?php echo "R$ ".$valor_arquivamento = number_format($valor_arquivamento, 2, ',', '.')?></td>
+            </tr>
             <tr>
                 <td><?php echo $codigo_comunicacao?></td>
                 <td><?php echo $nome_comunicacao. "(1º Registro de Imóveis)"?></td>
-                <td><?php echo "R$ ".$valor_comunicacao?></td> 
+                <td><?php echo "R$ ".$valor_comunicacao = number_format($valor_comunicacao, 2, ',', '.')?></td>
             </tr>
         <?php
             if($tipo_de_abertura == 'transporte'){
@@ -151,7 +178,7 @@
                 <tr>
                     <td><?php echo $codigo_transporte?></td>
                     <td><?php echo $nome_transporte?></td>
-                    <td><?php echo "R$ ".$custo_transporte?></td>
+                    <td><?php echo "R$ ".$custo_transporte = number_format($custo_transporte, 2, ',', '.')?></td>
                 </tr>
                 
         <?php
@@ -165,7 +192,7 @@
                 <tr>
                     <td><?php echo $codigo_cancelamento?></td>
                     <td><?php echo $nome_cancelamento?></td>
-                    <td><?php echo "R$ ".$custo_cancelamento?></td>
+                    <td><?php echo "R$ ".$custo_cancelamento = number_format($custo_cancelamento, 2, ',', '.')?></td>
                 </tr>
         <?php 
             }
@@ -179,7 +206,7 @@
                 
             </th>
             <th>
-                <?php echo "R$ ".$custo_total ?>
+                <?php echo "R$ ".$custo_total = number_format($custo_total, 2, ',', '.') ?>
             </th>
         </tr>
         <?php 
