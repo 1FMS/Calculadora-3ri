@@ -87,12 +87,6 @@
             if(isset($_POST['penhora'])){
                 $custo_total += $valor_penhora;
             }
-            if(isset($_POST['usufruto'])){
-                $custo_total += $valor_usufruto;
-            }
-            if(isset($_POST['indisponibilidade'])){
-                $custo_total += $valor_indisponibilidade;
-            }
             if($custo_total==0){
     ?>
                 <p>Selecione algum serviço</p>
@@ -172,17 +166,7 @@
     <?php
             }    
     ?>
-    <?php
-            if(isset($_POST['usufruto'])){
-    ?>
-                <tr>
-                    <td><?php echo $codigo_usufruto ?></td>
-                    <td><?php echo $nome_usufruto ?></td>
-                    <td><?php echo "R$ ".$valor_usufruto = number_format($valor_usufruto, 2, ',', '.') ?></td>
-                </tr>
-    <?php
-            }    
-    ?>
+    
     <?php
             if(isset($_POST['hipoteca'])){
     ?>
@@ -194,18 +178,6 @@
     <?php
             }    
     ?>
-    <?php
-            if(isset($_POST['indisponibilidade'])){
-    ?>
-                <tr>
-                    <td><?php echo $codigo_indisponibilidade ?></td>
-                    <td><?php echo $nome_indisponibilidade ?></td>
-                    <td><?php echo "R$ ".$valor_indisponibilidade = number_format($valor_indisponibilidade, 2, ',', '.') ?></td>
-                </tr>
-    <?php
-            }    
-    ?>
-
 
                 <tr>
                     <td><?php echo $codigo_prenotacao?></td>

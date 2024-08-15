@@ -65,7 +65,6 @@
             $codigo_prenotacao = $dados_valor_fixo['codigo_servico_fixo'];
             $nome_prenotacao = $dados_valor_fixo['nome_servico_fixo'];
             $valor_prenotacao = $dados_valor_fixo['total_fixo'];
-            
 
         }
         elseif($nome_servico == 'Arquivamento'){

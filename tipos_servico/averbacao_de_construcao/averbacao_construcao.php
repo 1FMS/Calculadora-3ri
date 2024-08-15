@@ -118,8 +118,8 @@
 
                 $custo_total += $valor_prenotacao;
                 $custo_total += $valor_certidao;
-                $custo_total += $valor_arquivamento * $multiplicador_arquivamento;
-                $custo_total += $valor_conferencia * $multiplicador_conferencia;
+                $custo_total += $valor_arquivamento_final;
+                $custo_total += $valor_conferencia_final;
             }elseif($_POST['abertura_matricula']== 'nao'){
                 $multiplicador_arquivamento = 8;
                 $multiplicador_conferencia = 4;
@@ -129,8 +129,8 @@
 
                 $custo_total += $valor_prenotacao;
                 $custo_total += $valor_certidao;
-                $custo_total += $valor_arquivamento * $multiplicador_arquivamento;
-                $custo_total += $valor_conferencia * $multiplicador_conferencia;
+                $custo_total += $valor_arquivamento_final;
+                $custo_total += $valor_conferencia_final;
 
                 $custo_total += $valor_matricula;// abertura
                 $custo_total += $valor_semvalor;// encerramento
