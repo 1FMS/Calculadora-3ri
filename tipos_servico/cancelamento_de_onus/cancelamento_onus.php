@@ -41,27 +41,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calculadora de Emolumentos</title>
+
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+
+            margin: 20px;
+
+            background-color: #f5f5f5;
+        }
+        #logo {
+            width: 360px;
+            height: auto;
+        }
+        h1{
+            color: #8A997A;
+        }
+        .form-area{
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+
+            margin-bottom: 10px;
+
+            background-color: white;
+            padding: 15px;
+            border: 2px solid #314b33;
+            border-radius: 5px;
+        }
+        .bt-servico{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            width: auto;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
+
+            border: 2px solid #314b33;
+            border-radius: 5px;
+
+            background-color: #9DAF89;
+
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        #text-servico{
+            color: #8A997A;
+            font-size: larger;
+        }
+        .text-servico{
+            color: #8A997A;
+            
+        }
+        .bt-input-radio{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            width: auto;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
+
+            border: 2px solid #314b33;
+            border-radius: 5px;
+
+            background-color: #9DAF89;
+
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        input{
+            transform: scale(1.5);
+            border: 2px solid red;
+        }
+        button{
+            border: 2px solid #314b33;
+            border-radius: 5px;
+
+            background-color: #9DAF89;
+
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        .bt-final{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        table{
+            border: 2px solid black;
+            border-collapse: collapse
+        }
+        table, td, th{
+            border: 2px solid #314b33;
+        }
+        td,th{
+            padding: 4px;
+        }
+    </style>
 </head>
 <body>
+    <img src="assets/LOGO_3RI 1_layerstyle.svg" alt="" srcset="" id="logo">
     <h1>Cancelamento de Ônus</h1>
-    <p>Escolha o tipo de Ônus:</p>
-    <form action="" method="post">
-        <p>Alienação Fiduciária<input type="radio" name="alienacao"></p>
-        <p>Cédula de Crédito Imobiliário<input type="radio" name="cedula"></p>
-        <p>Hipoteca<input type="radio" name="hipoteca"></p>
-        <p>Usufruto<input type="radio" name="usufruto"></p>
-        <p>Penhora<input type="radio" name="penhora"></p>
-        <p>Indisponibidade<input type="radio" name="indisponibilidade"></p>
+    <div class="form-area">
+        <p id="text-servico">Escolha o tipo de Ônus:</p>
+        <form action="" method="post">
+            <div class="bt-servico">
+                <p>Alienação Fiduciária</p><input type="checkbox" name="alienacao">
+            </div>
+            <div class="bt-servico">
+                <p>Cédula de Crédito Imobiliário</p><input type="checkbox" name="cedula">
+            </div>
+            <div class="bt-servico">
+                <p>Hipoteca</p><input type="checkbox" name="hipoteca">
+            </div>
+            <div class="bt-servico">
+                <p>Penhora</p><input type="checkbox" name="penhora">
+            </div>
+            
+            
+            
+            
+            
 
-        <p>Possui matrícula aberta no 3° Registro?</p>
-        <input type="hidden" name="abertura_matricula">
-        <p>Sim<input type="radio" name="abertura_matricula" id="" value="sim"></p>
-        <p>Não<input type="radio" name="abertura_matricula" id="" value="nao"></p>
+            <p class="text-servico">Possui matrícula aberta no 3º Registro?</p>
+                <input type="hidden" name="abertura_matricula">
+                <div class="bt-input-radio">
+                    <p>Sim</p><input type="radio" name="abertura_matricula" id="" value="sim">
+                </div>
+                <div class="bt-input-radio">
+                    <p>Não</p><input type="radio" name="abertura_matricula" id="" value="nao">
+                </div>
 
-        <button type="submit" name="calcular">Calcular</button>
-        <button><a href="principal.php" style="text-decoration: none; color: black;">Voltar</a></button>
+                <div class="bt-final">
+                    <button type="submit" name="calcular">Calcular</button>
+                    <button><a href="principal.php" style="text-decoration: none; color: white;">Voltar</a></button>
+                </div>
 
-    </form>
+        </form>
+    </div>
+    
 
     <?php
         if(isset($_POST['calcular'])){
@@ -242,7 +378,7 @@
     <?php
             }
     ?>
-                <tr>
+                <tr style=" background-color: #314b33; color:white">
                     <th>Emolumentos Totais</th>
                 
                 
