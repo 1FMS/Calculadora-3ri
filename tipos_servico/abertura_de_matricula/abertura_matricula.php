@@ -31,29 +31,46 @@
         <p class="text-servico">Selecione o tipo:</p>
         <form action="" method="post">
             <input type="hidden" name="tipo_abertura">
-            <div class="bt-type-radio">
-                <p class="text-type-radio">Abertura comum</p><input type="radio" name="tipo_abertura" value="comum">
-            </div>
-            <div class="bt-type-radio">
-                <p class="text-type-radio">Abertura + Transporte de Ônus</p><input type="radio" name="tipo_abertura" value="transporte">
-            </div>
-            <div class="bt-type-radio">
-                <p class="text-type-radio">Abertura + Transporte de Ônus + Cancelamento de Ônus</p><input type="radio" name="tipo_abertura" value="transporte_cancelamento">
-            </div>
+            <label for="comum"><div class="bt-type-radio">
+                <p class="text-type-radio">Abertura comum</p><input type="radio" name="tipo_abertura" value="comum" id="comum">
+            </div></label>
+            <label for="transporte"><div class="bt-type-radio">
+                <p class="text-type-radio">Abertura + Transporte de Ônus</p><input type="radio" name="tipo_abertura" value="transporte" id="transporte">
+            </div></label>
+            <label for="transporte_cancelamento"><div class="bt-type-radio">
+                <p class="text-type-radio">Abertura + Transporte de Ônus + Cancelamento de Ônus</p><input type="radio" name="tipo_abertura" value="transporte_cancelamento" id="transporte_cancelamento">
+            </div></label>
             
             
             
             <div class="bt-final-area">
 
-                <button class="bt-final"><a href="principal.php" style="text-decoration: none; color: white;">Voltar</a></button>
+                <label for="voltar"><button class="bt-final"><a id="voltar" href="principal.php" style="text-decoration: none; color: white;">Voltar</a></button></label>
 
-                <button type="submit" name="calcular" class="bt-final">Calcular</button>
+                <label for="calcular"><button type="submit" name="calcular" class="bt-final" id="calcular">Calcular</button></label>
 
             </div>
             
 
         </form>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#calculadora-form').on('submit', function(e) {
+                e.preventDefault(); // Impede o envio padrão do formulário
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'processa_calculo.php', // Crie um arquivo separado para processar os dados
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#result-table').html(response); // Atualiza o conteúdo da tabela
+                    }
+                });
+            });
+        });
+    </script>
     
 <?php
     if(isset($_POST['calcular'])){
@@ -132,9 +149,9 @@
 ?>
 <table id="table">
         <tr>
-            <th>Código</th>
-            <th>Ato</th>
-            <th>Valor</th>
+            <th class="start-table" id="primeiro-table">Código</th>
+            <th class="start-table">Ato</th>
+            <th class="start-table" id="ultimo-table">Valor</th>
         </tr>
         <tr>
             <td><?php echo $codigo_prenotacao?></td>
@@ -208,14 +225,14 @@
             }
          
         ?>
-        <tr style=" background-color: #314b33; color:white">
-            <th>
+        <tr >
+            <th class="end-table">
                 Emolumentos Totais
             </th>
-            <th>
+            <th class="end-table">
                 
             </th >
-            <th >
+            <th class="end-table">
                 <?php echo "R$ ".$custo_total = number_format($custo_total, 2, ',', '.') ?>
             </th>
         </tr>

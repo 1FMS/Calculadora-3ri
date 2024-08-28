@@ -130,7 +130,7 @@
             flex-wrap: nowrap;
         }
         .bt-final{
-            width: 10vh;
+            width: 10vh auto;
             height: auto;
             background-color: #324533;
 
@@ -145,32 +145,55 @@
             text-align: center;
             font-weight: 400;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         table{
-            border: 2px solid black;
-            border-collapse: collapse
+            border-collapse: collapse;
         }
-        table, td, th{
-            border: 2px solid #314b33;
+        .start-table{
+            background-color: #324533;
+            color: white;
+
+            
+            font-size: 14px;
+            font-weight: 700;
+            text-align: left;
+
+            padding: 10px;
+            
         }
-        td,th{
-            padding: 4px;
+        .end-table{
+            background-color: #324533; 
+            color:white;
+
+            font-size: 14px;
+            font-weight: 700;
+            text-align: left;
+
+            padding: 10px;
+        }
+        td{
+            border: 2px solid #828282;
+            width: auto;
+        }
+        #primeiro-table{
+            border-radius: 5px 0px 0px 0px;
+        }
+        #ultimo-table{
+            border-radius: 0px 5px 0px 0px;
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
