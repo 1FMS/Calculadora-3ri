@@ -2,7 +2,7 @@
 
 
     $hostname = "localhost";
-    $bancodedados = "calculadora3ri";
+    $bancodedados = "calculadora3r";
     $usuario = "root";
     $senha = "";
 

@@ -59,6 +59,7 @@
         }
         h1{
             color: #8A997A;
+            text-align: center;
         }
         .form-area{
 

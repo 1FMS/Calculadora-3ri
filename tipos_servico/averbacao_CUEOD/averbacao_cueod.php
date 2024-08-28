@@ -32,27 +32,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Emolumentos</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+
+            margin: 20px;
+
+            background-color: #f5f5f5;
+        }
+        #logo {
+            width: 360px;
+            height: auto;
+        }
+        h1{
+            color: #8A997A;
+            text-align: center;
+        }
+        .form-area{
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+
+            margin-bottom: 10px;
+
+            background-color: white;
+            padding: 15px;
+            border: 2px solid #314b33;
+            border-radius: 5px;
+        }
+        .bt-servico{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            width: auto;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
+
+            border: 2px solid #314b33;
+            border-radius: 5px;
+
+            background-color: #9DAF89;
+
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        .bt-input-radio{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            width: auto;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
+
+            border: 2px solid #314b33;
+            border-radius: 5px;
+
+            background-color: #9DAF89;
+
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        .texto-input{
+            color: #8A997A;
+        }
+        button{
+            border: 2px solid #314b33;
+            border-radius: 5px;
+
+            background-color: #9DAF89;
+
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        .bt-final{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        table{
+            border: 2px solid black;
+            border-collapse: collapse
+        }
+        table, td, th{
+            border: 2px solid #314b33;
+        }
+        td,th{
+            padding: 4px;
+        }
+    </style>
 </head>
 <body>
+    <img src="assets/LOGO_3RI 1_layerstyle.svg" alt="" srcset="" id="logo">
     <h1>Averbações</h1>
+    <div class="form-area">
+        <p class="texto-input">Escolha o tipo de Averbação:</p>
+        <form action="" method="post">
+            <div class="bt-servico">
+                 <p >Averbação de casamento</p><input type="checkbox" name="casamento">
+            </div>
+            <div class="bt-servico">
+                <p >Averbação de União Estável</p><input type="checkbox" name="uniao">
+            </div>
+            <div class="bt-servico">
+                <p > Averbação de Óbito</p><input type="checkbox" name="obito">
+            </div>
+            <div class="bt-servico">
+                <p >Averbação de Divórcio</p><input type="checkbox" name="divorcio">
+            </div>
+           
+            
+            
+            
+
+
+            <p class="texto-input">Possui matrícula aberta no 3º Registro?</p>
+                <input type="hidden" name="abertura_matricula">
+                <div class="bt-input-radio">
+                    <p>Sim</p><input type="radio" name="abertura_matricula" id="" value="sim">
+                </div>
+                <div class="bt-input-radio">
+                    <p>Não</p><input type="radio" name="abertura_matricula" id="" value="nao">
+                </div>
+
+                <div class="bt-final">
+                    <button type="submit" name="calcular">Calcular</button>
+                    <button><a href="principal.php" style="text-decoration: none; color: white;">Voltar</a></button>
+                </div>
+        </form>
+
+
+
+
+    </div>
     
-    <form action="" method="post">
-    <p>Escolha o tipo de Averbação:</p>
-    <form action="" method="post">
-        <p>Averbação de casamento<input type="checkbox" name="casamento"></p>
-        <p>Averbação de União Estável<input type="checkbox" name="uniao"></p>
-        <p>Averbação de Óbito<input type="checkbox" name="obito"></p>
-        <p>Averbação de Divórcio<input type="checkbox" name="divorcio"></p>
-
-
-        <p>Possui matrícula aberta no 3° Registro?</p>
-        <input type="hidden" name="abertura_matricula">
-        <p>Sim<input type="radio" name="abertura_matricula" id="" value="sim"></p>
-        <p>Não<input type="radio" name="abertura_matricula" id="" value="nao"></p>
-
-        <button type="submit" name="calcular">Calcular</button>
-        <button><a href="principal.php" style="text-decoration: none; color: black;">Voltar</a></button>
-    </form>
+    
     <?php
         if(isset($_POST['calcular'])){
             if($_POST['abertura_matricula'] == ""){
@@ -222,7 +353,7 @@
     <?php
         }
     ?>
-        <tr>
+        <tr style=" background-color: #314b33; color:white">
             <th>Emolumentos Totais</th>
             <th></th>
             <th><?php echo "R$ ".$custo_total = number_format($custo_total, 2, ',', '.')?></th>
