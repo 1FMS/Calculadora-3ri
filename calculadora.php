@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Calculadora de Emolumentos</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/padauk');
 
 
         body{
@@ -58,8 +60,10 @@
             margin-bottom: 10px;
 
             background-color: #62715C;
-            ;
-            padding: 15px;
+            
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 30px;
             border: none;
             border-radius: 5px;
 
@@ -96,7 +100,7 @@
             font-size: 23px;
             text-align: center;
 
-            margin-top: 0px;
+            margin-top: 10px;
         }
 
         .bt-type-radio{
@@ -123,6 +127,55 @@
             font-size: 18px;
             line-height: 32px;
         }
+        .texto-input-value{
+            font-family: "Palanquin Dark", sans-serif;
+            color: white;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 32px;
+        }
+        .area-input{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+        }
+        .input-value{
+            background-color: white;
+
+            border: none;
+            border-radius: 3px;
+
+            width: 30vh;
+            height: 40px;
+            margin-bottom: 12px;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            font-family: 'Padauk', sans-serif;
+            color: #73806E;
+            font-size: 20px;
+
+
+        }
+        .input-type-select{
+            background-color: white;
+
+            border: none;
+            border-radius: 3px;
+
+            width: 32vh;
+            height: 40px;
+            margin-bottom: 12px;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            font-family: "Palanquin Dark", sans-serif;
+            color: #73806E;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 32px;
+        }
         .bt-final-area{
             display: flex;
             flex-direction: row;
@@ -130,7 +183,7 @@
             flex-wrap: nowrap;
         }
         .bt-final{
-            width: 10vh auto;
+            width: 15vh;
             height: auto;
             background-color: #324533;
 
@@ -144,8 +197,18 @@
             font-size: 20px;
             text-align: center;
             font-weight: 400;
+
+            margin-right: 8px;
+        }
+       
+        form{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: normal;
         }
         table{
+            font-family: sans-serif;
             border-collapse: collapse;
         }
         .start-table{
@@ -171,8 +234,9 @@
             padding: 10px;
         }
         td{
-            border: 2px solid #828282;
+            border: 1px solid #828282;
             width: auto;
+            padding: 5px;
         }
         #primeiro-table{
             border-radius: 5px 0px 0px 0px;
@@ -180,24 +244,12 @@
         #ultimo-table{
             border-radius: 0px 5px 0px 0px;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
+        #inicio-result{
+            border-radius: 0px 0px 0px 5px;
+        }
+        #fim-result{
+            border-radius: 0px 0px 5px 0px;
+        }
 
 
 
@@ -244,6 +296,20 @@
         }
 
     ?>    
-
+    <script>
+        document.getElementById('calcular').addEventListener('click', function() {
+                    // Salvar o hash na sessão antes de enviar o formulário
+            sessionStorage.setItem('scrollToHash', '#tabela');
+        });
+            
+        window.addEventListener('load', function() {
+                    // Verificar se há um hash salvo e rolar para ele
+        var hash = sessionStorage.getItem('scrollToHash');
+        if (hash) {
+            sessionStorage.removeItem('scrollToHash'); // Remover o hash da sessão
+            window.location.hash = hash; // Rolar para a tabela
+            }
+        });
+    </script>
 </body>
 </html>

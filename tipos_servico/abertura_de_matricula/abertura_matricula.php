@@ -56,19 +56,18 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('#calculadora-form').on('submit', function(e) {
-                e.preventDefault(); // Impede o envio padrão do formulário
-
-                $.ajax({
-                    type: 'POST',
-                    url: 'processa_calculo.php', // Crie um arquivo separado para processar os dados
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        $('#result-table').html(response); // Atualiza o conteúdo da tabela
-                    }
-                });
-            });
+        document.getElementById('calcular').addEventListener('click', function() {
+                    // Salvar o hash na sessão antes de enviar o formulário
+            sessionStorage.setItem('scrollToHash', '#tabela');
+        });
+            
+        window.addEventListener('load', function() {
+                    // Verificar se há um hash salvo e rolar para ele
+        var hash = sessionStorage.getItem('scrollToHash');
+        if (hash) {
+            sessionStorage.removeItem('scrollToHash'); // Remover o hash da sessão
+            window.location.hash = hash; // Rolar para a tabela
+            }
         });
     </script>
     
@@ -147,7 +146,7 @@
 
 
 ?>
-<table id="table">
+<table id="tabela">
         <tr>
             <th class="start-table" id="primeiro-table">Código</th>
             <th class="start-table">Ato</th>
@@ -226,13 +225,13 @@
          
         ?>
         <tr >
-            <th class="end-table">
+            <th class="end-table" id="inicio-result">
                 Emolumentos Totais
             </th>
             <th class="end-table">
                 
             </th >
-            <th class="end-table">
+            <th class="end-table" id="fim-result">
                 <?php echo "R$ ".$custo_total = number_format($custo_total, 2, ',', '.') ?>
             </th>
         </tr>
