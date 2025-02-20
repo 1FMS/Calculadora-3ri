@@ -22,7 +22,7 @@ Este é um sistema web desenvolvido para gerar estimativas de valores de serviç
    git clone https://github.com/1fms/Calculadora-3ri.git
    ```
 2. **Configure o ambiente:**
-   - Instale o [WampServer 5.5.19](https://sourceforge.net/projects/wampserver/files/WampServer%205/WampServer%205.5.19/)
+   - Instale o XAMPP 5.5.19
    - Certifique-se de que o PHP 5.5.19 está ativado.
    - Inicie os serviços do WAMP.
 
