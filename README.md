@@ -7,7 +7,7 @@ Este é um sistema web desenvolvido para gerar estimativas de valores de serviç
 - **Linguagem Backend:** PHP (versão 5.5.19)
 - **Banco de Dados:** MySQL (phpMyAdmin)
 - **Frontend:** HTML, CSS
-- **Ambiente de Desenvolvimento:** WampServer (versão 5.5.19)
+- **Ambiente de Desenvolvimento:** XAMPP (versão 5.5.19)
 
 ## 🚀 Funcionalidades
 
@@ -24,7 +24,7 @@ Este é um sistema web desenvolvido para gerar estimativas de valores de serviç
 2. **Configure o ambiente:**
    - Instale o XAMPP 5.5.19
    - Certifique-se de que o PHP 5.5.19 está ativado.
-   - Inicie os serviços do WAMP.
+   - Inicie os serviços do XAMPP.
 
 3. **Importe o banco de dados:**
    - Acesse o **phpMyAdmin**.
